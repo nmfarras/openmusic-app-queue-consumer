@@ -5,7 +5,7 @@ class PlaylistsService {
     this._pool = new Pool();
   }
  
-  async getNotes(playlistId) {
+  async getPlaylists(playlistId) {
     const query = {
       text: `SELECT p.id, p.name, u.username, 
       json_agg(json_build_object('id', s.id, 'title' , s.title, 'performer', s.performer)) AS songs
@@ -21,7 +21,8 @@ class PlaylistsService {
       values: [playlistId],
     };
     const result = await this._pool.query(query);
-    return result.rows[0];
+    const playlist = result.rows[0];
+    return playlist;
   }
 }
  

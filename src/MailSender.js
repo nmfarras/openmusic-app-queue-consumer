@@ -13,16 +13,16 @@ class MailSender {
     });
   }
  
-  sendEmail(targetEmail, content) {
+  sendEmail(targetEmail, playlist) {
     const message = {
-      from: 'Notes Apps',
+      from: 'Openmusic Apps',
       to: targetEmail,
-      subject: 'Ekspor Catatan',
-      text: 'Terlampir hasil dari ekspor catatan',
+      subject: 'Ekspor Playlist',
+      text: 'Terlampir hasil dari ekspor playlist',
       attachments: [
         {
-          filename: 'notes.json',
-          content,
+          filename: 'playlists.json',
+          playlist,
         },
       ],
     };
